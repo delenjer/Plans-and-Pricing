@@ -1,0 +1,41 @@
+@import "mixins";
+
+.tabs {
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 2.2rem;
+  background-color: rgba(255, 255, 255, 0.50);
+
+  &__btn {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.833px;
+    color: var(--violet-color);
+    background-color: unset;
+    border: 0;
+    padding: 1.3rem 2.4rem;
+    cursor: pointer;
+  }
+}
+
+.active-tab {
+  border-radius: 2.2rem;
+  background-color: var(--purple-2);
+  color: var(--white-color);
+  box-shadow: var(--tab-shadow);
+}
+
+@include screen-media-width_768 {
+  .tabs-container {
+    width: 100%;
+  }
+
+  .tabs {
+    width: max-content;
+    margin: 0 auto;
+  }
+}

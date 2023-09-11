@@ -1,0 +1,32 @@
+@import "mixins";
+
+.info {
+  margin-top: 2.5rem;
+
+  &__text {
+    width: 100%;
+    max-width: 58.4rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--purple-gray);
+  }
+}
+
+.info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@include screen-media-width_768 {
+  .info {
+    margin-top: 2rem;
+  }
+
+  .info-box {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3.7rem 0;
+  }
+}

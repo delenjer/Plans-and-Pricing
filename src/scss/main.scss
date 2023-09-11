@@ -1,0 +1,80 @@
+@import "./reset-css";
+@import "./mixins";
+@import "./fonts";
+@import "./header";
+@import "./actions";
+@import "./info";
+@import "./card";
+@import "./tabs";
+
+:root {
+  --main-bg: linear-gradient(180deg, #F5F5FA 0%, #F2DAD5 44.15%, #A0ABD6 100%);
+  --violet-color: #231D4F;
+  --white-color: #fff;
+  --purple-2: #BB6BD9;
+  --purple-gray: #848199;
+  --tab-shadow: 0 6px 12px 0 rgba(82, 67, 194, 0.16);
+  --card-label-bg: #403879;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 62.5%;
+  font-style: normal;
+  line-height: normal;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--main-bg);
+}
+
+.main {
+  margin-top: 4.1rem;
+  padding: 0 1.6rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 92.6rem;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--violet-color);
+}
+
+.price {
+  display: none;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-radius: 2.6rem;
+  background-color: rgba(255, 255, 255, 0.64);
+  padding: 0 4.5rem 2rem;
+  margin: 6.4rem auto 6.9rem;
+
+  @include screen-media-width_1024 {
+    padding: 0 0 2rem;
+  }
+
+  @include screen-media-width_768 {
+    flex-direction: column;
+    padding: 0.8rem;
+    margin: 3.2rem auto 6.4rem;
+  }
+}
+
+.active-price {
+  display: flex;
+}

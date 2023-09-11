@@ -1,0 +1,14 @@
+$mediumSize: 1024px;
+$tabletSize: 768px;
+
+@mixin screen-media-width_1024 {
+  @media (max-width: $mediumSize){
+    @content;
+  }
+}
+
+@mixin screen-media-width_768 {
+  @media (max-width: $tabletSize){
+    @content;
+  }
+}

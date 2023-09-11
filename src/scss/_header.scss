@@ -1,0 +1,21 @@
+@import "mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.8rem 5rem;
+
+  @include screen-media-width_1024 {
+    padding: 2.4rem 3.1rem;
+  }
+
+  @include screen-media-width_768 {
+    padding: 2.4rem;
+
+    .join-btn {
+      display: none;
+    }
+  }
+}
