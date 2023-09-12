@@ -1,23 +1,33 @@
 
 let currentIndex = 0;
-export const handleTabs = (tabsAction, tabsBody, activeTabClass, activeTabBodyClass) => {
-  tabsAction.forEach((action, i) => {
-    tabsAction[currentIndex].classList.add(activeTabClass);
-    tabsBody[currentIndex].classList.add(activeTabBodyClass);
+export const handleTabs = (tabButtons, tabsBody, activeTab = '', activeTabBody = '') => {
+  try {
+    tabButtons[currentIndex].classList.add(activeTab);
+    tabsBody[currentIndex].classList.add(activeTabBody);
 
+    handleTabsAction (tabButtons, activeTab, tabsBody, activeTabBody);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function handleTabsAction (tabButtons, activeTabsClass, tabsBodyList, activeTabBodyClass) {
+  tabButtons.forEach((action, index) => {
     action.addEventListener('click', () => {
-      tabsAction[currentIndex].classList.remove(activeTabClass);
-      action.classList.add(activeTabClass);
+      tabButtons[currentIndex].classList.remove(activeTabsClass);
+      action.classList.add(activeTabsClass);
 
-      currentIndex = i;
+      currentIndex = index;
 
-      tabsBody.forEach((item, j) => {
-        if (i === j) {
-          item.classList.add(activeTabBodyClass);
-        } else {
-          item.classList.remove(activeTabBodyClass);
-        }
-      })
+      handleTabsBody(tabsBodyList, index, activeTabBodyClass);
     });
+  });
+}
+
+function handleTabsBody (tabsBodyList, indexActiveButton, activeClass) {
+  tabsBodyList.forEach((item, index) => {
+    indexActiveButton === index ?
+      item.classList.add(activeClass) :
+      item.classList.remove(activeClass);
   });
 }
